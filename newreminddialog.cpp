@@ -15,7 +15,7 @@ NewRemindDialog::NewRemindDialog(QWidget *parent)
     inDateTimeUpdate = false;
 
     QObject::connect(ui->dateTimeEdit, SIGNAL(dateTimeChanged(QDateTime)), this, SLOT(updateDuration()));
-    QObject::connect(ui->syncPushButton, SIGNAL(clicked()), this, SLOT(sync));
+    QObject::connect(ui->syncPushButton, SIGNAL(clicked()), this, SLOT(sync()));
 
     QObject::connect(ui->durationDays, SIGNAL(valueChanged(int)), this, SLOT(updateDateTime()));
     QObject::connect(ui->durationHours, SIGNAL(valueChanged(int)), this, SLOT(updateDateTime()));

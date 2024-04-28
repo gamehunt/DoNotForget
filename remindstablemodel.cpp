@@ -33,7 +33,7 @@ void RemindsTableModel::update() {
     QModelIndex start = createIndex(0, 2);
     QModelIndex end   = createIndex(rows, 2);
 
-    emit dataChanged(start, end, {Qt::DisplayRole});
+    emit dataChanged(start, end, { Qt::DisplayRole });
 
     for(int i = 0; i < rows; i++) {
         if(reminds[i].getExpirationTime() <= QDateTime::currentDateTime()) {

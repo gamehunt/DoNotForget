@@ -3,6 +3,7 @@
 
 #include <QMessageBox>
 #include <newreminddialog.h>
+#include <util.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(updateButtonStates()));
     QObject::connect(ui->actionRemove, SIGNAL(triggered()), this, SLOT(removeReminds()));
     QObject::connect(ui->actionNew, SIGNAL(triggered()), this, SLOT(newRemind()));
+
+    QObject::connect(&model, SIGNAL(remindExpired(int, Remind)), this, SLOT(handleExpiredRemind(int, Remind)));
 }
 
 MainWindow::~MainWindow() {
@@ -53,4 +56,9 @@ void MainWindow::removeReminds() {
         QModelIndex index = sm->selectedIndexes().first();
         model.removeRow(index.row());
     }
+}
+
+void MainWindow::handleExpiredRemind(int index, Remind r){
+    beep();
+    model.removeRemind(index);
 }

@@ -24,6 +24,7 @@ public slots:
 
     void newRemind();
     void removeReminds();
+    void handleExpiredRemind(int index, Remind r);
 
 private:
     RemindsTableModel model;
