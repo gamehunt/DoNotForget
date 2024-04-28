@@ -10,13 +10,21 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    newreminddialog.cpp \
+    remind.cpp \
+    remindstablemodel.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    newreminddialog.h \
+    remind.h \
+    remindstablemodel.h \
+    util.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    newreminddialog.ui
 
 TRANSLATIONS += \
     DoNotForget_en_US.ts
@@ -27,3 +35,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

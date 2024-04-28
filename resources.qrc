@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/filted_default.ico</file>
+        <file>icons/new.ico</file>
+        <file>icons/settings.ico</file>
+        <file>icons/remove.ico</file>
+        <file>icons/update.ico</file>
+    </qresource>
+</RCC>

@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "remindstablemodel.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +19,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void updateButtonStates();
+
+    void newRemind();
+    void removeReminds();
+
 private:
+    RemindsTableModel model;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
