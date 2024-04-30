@@ -6,5 +6,6 @@
         <file>icons/remove.ico</file>
         <file>icons/update.ico</file>
         <file>beep.mp3</file>
+        <file>icons/icon.ico</file>
     </qresource>
 </RCC>

@@ -86,8 +86,15 @@ void NewRemindDialog::updateDateTime() {
 }
 
 Remind NewRemindDialog::getRemindData() {
-    return Remind(ui->nameLineEdit->text(),
-                  ui->descriptionLineEdit->toPlainText(),
-                  ui->dateTimeEdit->dateTime()
-    );
+    Remind r = Remind(ui->nameLineEdit->text(),
+                      ui->descriptionLineEdit->toPlainText(),
+                      DURATION(
+                          ui->durationDays->value(),
+                          ui->durationHours->value(),
+                          ui->durationMinutes->value(),
+                          ui->durationSeconds->value()
+                        )
+                      );
+    r.setRepeatable(ui->checkBox->isChecked());
+    return r;
 }

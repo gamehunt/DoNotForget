@@ -22,9 +22,12 @@ public:
 
     void update();
 
+    QList<Remind> getReminds();
+
 public slots:
     void removeRemind(int index);
     void updateRemind(int index, Remind remind);
+    void appendRemind(Remind r);
 
 signals:
     void remindExpired(int index, Remind remind);

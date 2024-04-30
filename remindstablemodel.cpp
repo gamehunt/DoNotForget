@@ -23,6 +23,15 @@ void RemindsTableModel::updateRemind(int index, Remind remind) {
     reminds[index] = remind;
 }
 
+void RemindsTableModel::appendRemind(Remind r){
+    insertRows(rowCount(), 1);
+    updateRemind(rowCount() - 1, r);
+}
+
+QList<Remind> RemindsTableModel::getReminds(){
+    return reminds;
+}
+
 void RemindsTableModel::update() {
     int rows = rowCount();
 

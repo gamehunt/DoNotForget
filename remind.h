@@ -2,7 +2,7 @@
 #define REMIND_H
 
 #include <QDateTime>
-
+#include <QJsonObject>
 
 class Remind
 {
@@ -17,11 +17,23 @@ public:
     void setDescription(const QString &newDescription);
     QDateTime getExpirationTime() const;
     void setExpirationTime(const QDateTime &newExpires);
+    quint64 getDuration() const;
+    bool isRepeatable() const;
+    void setRepeatable(bool newRepeatable);
+
+
+    static Remind      fromJson(const QJsonObject& object);
+    static QJsonObject toJson(const Remind& r);
+
+    void renew();
+
 
 protected:
     QString name;
     QString description;
     QDateTime expires;
+    quint64 duration;
+    bool repeatable;
 };
 
 #endif // REMIND_H

@@ -4,6 +4,9 @@
 #include "remindstablemodel.h"
 
 #include <QMainWindow>
+#include <QFile>
+#include <QSettings>
+#include <QSystemTrayIcon>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,6 +22,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void initSettings();
+    void loadReminds();
+    void saveReminds();
+
+    void closeEvent(QCloseEvent *event) override;
+
 public slots:
     void updateButtonStates();
 
@@ -26,7 +35,19 @@ public slots:
     void removeReminds();
     void handleExpiredRemind(int index, Remind r);
 
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    void showMessage();
+    void messageClicked();
+
 private:
+    QSystemTrayIcon* trayIcon;
+    QMenu* trayMenu;
+
+    QAction* quitAction;
+    QAction* restoreAction;
+
+    QFile* remindsStorage;
+    QSettings* settings;
     RemindsTableModel model;
     Ui::MainWindow *ui;
 };

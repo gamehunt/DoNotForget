@@ -13,18 +13,21 @@ SOURCES += \
     mainwindow.cpp \
     newreminddialog.cpp \
     remind.cpp \
+    remindexpireddialog.cpp \
     remindstablemodel.cpp
 
 HEADERS += \
     mainwindow.h \
     newreminddialog.h \
     remind.h \
+    remindexpireddialog.h \
     remindstablemodel.h \
     util.h
 
 FORMS += \
     mainwindow.ui \
-    newreminddialog.ui
+    newreminddialog.ui \
+    remindexpireddialog.ui
 
 TRANSLATIONS += \
     DoNotForget_en_US.ts
